@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Audience));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dtpBirthDay = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new Bunifu.Framework.UI.BunifuImageButton();
             this.txbPhone = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnAdd = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnCheck = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.cbCheck = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label10 = new System.Windows.Forms.Label();
             this.txbFee = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label9 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txbAddress = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txbBirthDay = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label1 = new System.Windows.Forms.Label();
             this.txbName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,11 +63,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.dtpBirthDay);
             this.panel2.Controls.Add(this.btnCancel);
             this.panel2.Controls.Add(this.txbPhone);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Controls.Add(this.btnCheck);
+            this.panel2.Controls.Add(this.cbCheck);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.txbFee);
             this.panel2.Controls.Add(this.label9);
@@ -79,7 +80,6 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txbAddress);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.txbBirthDay);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txbName);
             this.panel2.Controls.Add(this.label2);
@@ -87,6 +87,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(524, 424);
             this.panel2.TabIndex = 5;
+            // 
+            // dtpBirthDay
+            // 
+            this.dtpBirthDay.Location = new System.Drawing.Point(143, 51);
+            this.dtpBirthDay.Name = "dtpBirthDay";
+            this.dtpBirthDay.Size = new System.Drawing.Size(291, 20);
+            this.dtpBirthDay.TabIndex = 44;
             // 
             // btnCancel
             // 
@@ -144,17 +151,17 @@
             this.btnAdd.Zoom = 10;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnCheck
+            // cbCheck
             // 
-            this.btnCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.btnCheck.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.btnCheck.Checked = true;
-            this.btnCheck.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.btnCheck.ForeColor = System.Drawing.Color.White;
-            this.btnCheck.Location = new System.Drawing.Point(143, 321);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(20, 20);
-            this.btnCheck.TabIndex = 37;
+            this.cbCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.cbCheck.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.cbCheck.Checked = true;
+            this.cbCheck.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.cbCheck.ForeColor = System.Drawing.Color.White;
+            this.cbCheck.Location = new System.Drawing.Point(143, 321);
+            this.cbCheck.Name = "cbCheck";
+            this.cbCheck.Size = new System.Drawing.Size(20, 20);
+            this.cbCheck.TabIndex = 37;
             // 
             // label10
             // 
@@ -307,23 +314,6 @@
             this.label4.TabIndex = 23;
             this.label4.Text = "Address";
             // 
-            // txbBirthDay
-            // 
-            this.txbBirthDay.BorderColorFocused = System.Drawing.Color.WhiteSmoke;
-            this.txbBirthDay.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.txbBirthDay.BorderColorMouseHover = System.Drawing.Color.WhiteSmoke;
-            this.txbBirthDay.BorderThickness = 3;
-            this.txbBirthDay.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txbBirthDay.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbBirthDay.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txbBirthDay.isPassword = false;
-            this.txbBirthDay.Location = new System.Drawing.Point(143, 45);
-            this.txbBirthDay.Margin = new System.Windows.Forms.Padding(4);
-            this.txbBirthDay.Name = "txbBirthDay";
-            this.txbBirthDay.Size = new System.Drawing.Size(291, 30);
-            this.txbBirthDay.TabIndex = 20;
-            this.txbBirthDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -425,7 +415,7 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txbPhone;
         private System.Windows.Forms.Label label12;
         private Bunifu.Framework.UI.BunifuImageButton btnAdd;
-        private Bunifu.Framework.UI.BunifuCheckbox btnCheck;
+        private Bunifu.Framework.UI.BunifuCheckbox cbCheck;
         private System.Windows.Forms.Label label10;
         private Bunifu.Framework.UI.BunifuMetroTextbox txbFee;
         private System.Windows.Forms.Label label9;
@@ -437,12 +427,12 @@
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuMetroTextbox txbAddress;
         private System.Windows.Forms.Label label4;
-        private Bunifu.Framework.UI.BunifuMetroTextbox txbBirthDay;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuMetroTextbox txbName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
+        private System.Windows.Forms.DateTimePicker dtpBirthDay;
     }
 }

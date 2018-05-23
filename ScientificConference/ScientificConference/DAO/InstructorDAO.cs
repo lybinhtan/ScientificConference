@@ -21,7 +21,7 @@ namespace ScientificConference.DAO
 
         public DataTable GetAllData()
         {
-            string query = "select Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, status, Point from Instructor, CheckJoin where Instructor.checkk = CheckJoin.val";
+            string query = "select Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, Status, Point from Instructor, CheckJoin where Instructor.checkk = CheckJoin.val";
             DataTable data = new DataTable();
             data = DataProvider.Instance.ExecuteQuery(query);
             return data;
@@ -30,8 +30,26 @@ namespace ScientificConference.DAO
         public DataTable FindData(string name)
         {
             DataTable data = new DataTable();
-
+            string query = "select Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, Status, Point from Instructor, CheckJoin where Instructor.checkk = CheckJoin.val and Name = '" + name + "'";
+            data = DataProvider.Instance.ExecuteQuery(query);
             return data;
+        }
+
+        public void DeleteData(string name, string phonenumber)
+        {
+            string query = "delete from Instructor where Name = '"+name+"'and PhoneNumber ='"+phonenumber+"'";
+            DataProvider.Instance.Execute_Non_Query(query);
+        }
+        public bool CheckExist(string name,string phonenumber)
+        {
+            string query = "select * from Instructor where Name = '" + name + "' and PhoneNumber = '" + phonenumber + "'";
+            DataTable data = new DataTable();
+            data = DataProvider.Instance.ExecuteQuery(query);
+            if(data.Rows.Count != 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

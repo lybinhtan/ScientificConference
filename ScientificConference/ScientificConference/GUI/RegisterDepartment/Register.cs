@@ -1,5 +1,6 @@
 ﻿using ScientificConferenc.GUI.RegisterDepartment;
 using ScientificConference.DAO;
+using ScientificConference.DTO;
 using ScientificConference.GUI.RegisterDepartment;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace ScientificConference
         {
             InitializeComponent();
             Load += new EventHandler(Register_Load);
+            dgvData.ReadOnly = true;
         }
         #region method
 
@@ -27,7 +29,18 @@ namespace ScientificConference
         public  void ShowData()
         {
             DataTable data = new DataTable();
-            data = InstructorDAO.Instance.GetAllData();
+            if(flag == 1)
+            {
+                data = InstructorDAO.Instance.GetAllData();
+            }
+            else if(flag == 2)
+            {
+                data = GuestDAO.Instance.GetAllData();
+            }
+            else
+            {
+                data = AudienceDAO.Instance.GetAllData();
+            }
             dgvData.DataSource = data;
         }
 
@@ -36,14 +49,25 @@ namespace ScientificConference
         #region event
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
         {
-            DataTable data = new DataTable();
-            data = InstructorDAO.Instance.GetAllData();
-            dgvData.DataSource = data;
         }
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            string find = txbFind.text;
+            string name = txbFind.text;
+            DataTable data = new DataTable();
+            if(flag == 1)
+            {
+                data = InstructorDAO.Instance.FindData(name);
+            }
+            else if(flag == 2)
+            {
+                data = GuestDAO.Instance.FindData(name);
+            }
+            else
+            {
+                data = AudienceDAO.Instance.FindData(name);
+            }
+            dgvData.DataSource = data;
         }
 
         private void loaddata_(object sender, EventArgs e)
@@ -59,9 +83,6 @@ namespace ScientificConference
             ShowData();
         }
 
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
-        }
 
         private void btnGuest_Click(object sender, EventArgs e)
         {
@@ -113,7 +134,34 @@ namespace ScientificConference
         {
             ShowData();
         }
-        #endregion
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            DataTable data = new DataTable();
+            data = InstructorDAO.Instance.GetAllData();
+            dgvData.DataSource = data;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int index = dgvData.CurrentCell.RowIndex;
+            DataRow row = (dgvData.Rows[index].DataBoundItem as DataRowView).Row;
+            string name = row["Name"].ToString();
+            string phonenumber = row["PhoneNumber"].ToString();
+            if(flag == 1)
+            {
+                InstructorDAO _instructorDAO = new InstructorDAO();
+                _instructorDAO.DeleteData(name,phonenumber);
+            }else if (flag == 2){
+                GuestDAO _guest = new GuestDAO();
+                _guest.DeleteData(name,phonenumber);
+            }
+            else{
+                AudienceDAO _audience = new AudienceDAO();
+                _audience.DeleteData(name,phonenumber);
+            }
+            ShowData();
+        }
+        #endregion
     }
 }

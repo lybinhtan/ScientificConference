@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScientificConference.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace ScientificConference.GUI.RegisterDepartment
         public Guest()
         {
             InitializeComponent();
+            dtpBirthDay.Format = DateTimePickerFormat.Custom;
+            dtpBirthDay.CustomFormat = "MM-dd-yyyy";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -22,6 +25,34 @@ namespace ScientificConference.GUI.RegisterDepartment
             Register next = new Register();
             this.Hide();
             next.Show();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string name = txbName.Text;
+            DateTime birthday = dtpBirthDay.Value;
+            string address = txbAddress.Text;
+            string phone = txbPhone.Text;
+            string email = txbEmail.Text;
+            string topic = txbTopic.Text;
+            string country = txbCountry.Text;
+            int check;
+            if (cbCheck.Checked == true)
+            {
+                check = 1;
+            }
+            else check = 0;
+            GuestDAO _guest = new GuestDAO();
+            if(_guest.CheckExist(name,phone))
+            {
+                MessageBox.Show("Người này đã tồn tại", "Thông Báo");
+            }
+            else{
+                _guest.AddGuest(name, birthday, address, phone, topic, email, check, country);
+                Register next = new Register();
+                this.Hide();
+                next.Show();
+            }
         }
     }
 }

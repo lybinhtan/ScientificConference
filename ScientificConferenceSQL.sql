@@ -77,20 +77,41 @@ CREATE TABLE Audience(
 )
 GO
 
-select Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, status, Point from Instructor, CheckJoin where Instructor.checkk = CheckJoin.val
-
 create table CheckJoin(
 	val int,
 	status varchar(50),
 )
 go
 
+
+select Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, status, Point from Instructor, CheckJoin where Instructor.checkk = CheckJoin.val
+
+select Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, status, Point from Instructor, CheckJoin where Instructor.checkk = CheckJoin.val and Name = 'Nam'
+
+insert into Guest (Name, BirthDay, Address, PhoneNumber, Topic,Email,Checkk,Country) values (N'Name', 'Birthday',N'address',N'phonenumber', N'topic', N'Email', 1,N'dafasd')
+
 insert into CheckJoin values(1,N'Tham gia')
 
-insert into CheckJoin values(0,N'Chưa biết')
+insert into CheckJoin values(0,N'Không tham gia')
 
-insert into CheckJoin values(2,N'Không tham gia')
+select Name, BirthDay, Address, PhoneNumber, Topic, Email, status, Country from Guest as G, CheckJoin as CJ where G.Checkk = CJ.val;
 
+select Name, BirthDay, Address, PhoneNumber, Topic, Email, status, Country, Fee from Audience as D, CheckJoin as CJ where D.Checkk = CJ.val;
+
+insert into Audience(Name, BirthDay,Address, PhoneNumber, Topic, Email,Checkk, Country, Fee) values(N'Name','BirthDay', N'address', N'Phonenumber', N'Topic', N'email', 2, N'Country', 3)
+
+select * from Instructor
+
+insert into Instructor(
+	Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, Checkk, Point
+)
+values(
+	N'Nam', '11/15/2037', N'dakf', N'4329578283', N'ds', N'djafads', N'djafd', '2/4/2017', 2000, 1, 4
+)
+
+select * from Instructor
+
+select * from Instructor where Name = 'nammm' and PhoneNumber = '' 
 
 /*
 CREATE TABLE ProgramDetail(

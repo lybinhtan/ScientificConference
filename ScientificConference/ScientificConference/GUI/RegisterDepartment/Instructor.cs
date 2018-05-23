@@ -62,10 +62,17 @@ namespace ScientificConferenc.GUI.RegisterDepartment
             if (cbCheck.Checked == true)Check = 1;
             else Check = 0;
             InstructorDAO _instructor = new InstructorDAO();
-            _instructor.AddInstructor(Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, Check);
-            Register next = new Register();
-            this.Hide();
-            next.Show();
+            if (_instructor.CheckExist(Name, PhoneNumber))
+            {
+                MessageBox.Show("Người này đã tồn tại", "Thông Báo");
+            }
+            else
+            {
+                _instructor.AddInstructor(Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, Check);
+                Register next = new Register();
+                this.Hide();
+                next.Show();
+            }
         }
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)

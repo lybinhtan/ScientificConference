@@ -80,7 +80,7 @@
             this.btnHome.TabIndex = 2;
             this.btnHome.TabStop = false;
             this.btnHome.Zoom = 10;
-            this.btnHome.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panel3
             // 
@@ -305,6 +305,7 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.TabStop = false;
             this.btnDelete.Zoom = 10;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
