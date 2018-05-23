@@ -22,7 +22,7 @@ namespace ScientificConference
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new Register());
+            Application.Run(new Login());
         }
     }
 }

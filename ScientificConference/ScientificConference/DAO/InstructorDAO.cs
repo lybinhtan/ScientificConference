@@ -18,5 +18,20 @@ namespace ScientificConference.DAO
             string query = "insert into Instructor(Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, Checkk) values(N'"+name+"', '"+birthday+"', N'"+address+"', N'"+phonenumber+"', N'"+email+"', N'"+topic+"', N'"+country+"', '"+registrationdate+"', "+fee+", "+check+")";
             DataProvider.Instance.Execute_Non_Query(query);
         }
+
+        public DataTable GetAllData()
+        {
+            string query = "select Name, BirthDay, Address, PhoneNumber, Email, Topic, Country, RegistrationDate, Fee, status, Point from Instructor, CheckJoin where Instructor.checkk = CheckJoin.val";
+            DataTable data = new DataTable();
+            data = DataProvider.Instance.ExecuteQuery(query);
+            return data;
+        }
+
+        public DataTable FindData(string name)
+        {
+            DataTable data = new DataTable();
+
+            return data;
+        }
     }
 }
